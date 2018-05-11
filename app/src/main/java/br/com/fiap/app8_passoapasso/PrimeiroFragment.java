@@ -1,5 +1,6 @@
 package br.com.fiap.app8_passoapasso;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +46,39 @@ public class PrimeiroFragment extends Fragment {
         recycler.setAdapter(adapter);
 
         return myView;
+    }
+
+    // onContextItemSelected
+    // Adiciona em new
+    // displayDialog()
+
+    public void displayDialog() {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.cadastro);
+
+        nome = dialog.findViewById(R.layout.cadastro);
+        endereco = dialog.findViewById(R.layout.endereco);
+        cadastrar = dialog.findViewById(R.layout.cadastro);
+        cancelar = dialog.findViewById(R.layout.cancelar);
+
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itens.add(new Usuario(nome.getText().toString(), endereco.getText().toString()));
+                adapter.notifyDataSetChanged();
+
+                dialog.dismiss();
+            }
+        });
+
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
 }
