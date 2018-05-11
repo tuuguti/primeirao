@@ -63,6 +63,13 @@ public class PrimeiroFragment extends Fragment {
     }
 
 
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getTitle().equals("New")){
 
-
+        }else if(item.getTitle().equals("Delete")){
+            adapter.delete();
+        }
+        return super.onContextItemSelected(item);
+    }
 }
