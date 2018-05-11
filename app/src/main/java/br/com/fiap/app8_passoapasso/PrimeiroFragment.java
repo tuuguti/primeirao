@@ -1,14 +1,10 @@
 package br.com.fiap.app8_passoapasso;
 
-
-import android.app.Dialog;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,10 +12,6 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PrimeiroFragment extends Fragment {
     private RecyclerView recycler;
     private ArrayList<Usuario> itens;
@@ -28,19 +20,14 @@ public class PrimeiroFragment extends Fragment {
     private EditText endereco;
     private Button cadastrar;
     private Button cancelar;
-    View myView;
-    public PrimeiroFragment() {
-        // Required empty public constructor
-    }
+    protected View myView;
+
+    public PrimeiroFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fragment_primeiro, container, false);
-        // Inflate the layout for this fragment
-
-
-
         recycler = myView.findViewById(R.id.recycler);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -55,7 +42,6 @@ public class PrimeiroFragment extends Fragment {
         itens.add(new Usuario("Título 6", "Descrição 6"));
 
         adapter = new UsuarioAdapter(getContext(), itens);
-
         recycler.setAdapter(adapter);
 
 
