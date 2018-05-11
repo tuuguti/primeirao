@@ -45,5 +45,11 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioViewHolder>{
     public int getItemCount() {
         return itens != null? itens.size() : 0;
     }
+
+    public void delete(){
+        Usuario usuario = itens.get(selectedPos);
+        itens.remove(usuario);
+        this.notifyItemRemoved(selectedPos);
+    }
     
 }
