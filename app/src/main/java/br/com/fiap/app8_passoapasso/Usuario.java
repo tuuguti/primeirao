@@ -3,7 +3,6 @@ package br.com.fiap.app8_passoapasso;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
-
     private String nome;
     private String endereco;
 
@@ -27,4 +26,5 @@ public class Usuario implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
 }

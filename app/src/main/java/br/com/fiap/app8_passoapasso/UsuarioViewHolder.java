@@ -6,13 +6,15 @@ import android.view.View;
 import android.widget.TextView;
 
 public class UsuarioViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnCreateContextMenuListener {
-    TextView nome, endereco;
-    MyLongClickListener longClickListener;
+    protected TextView nome, endereco;
+    protected MyLongClickListener longClickListener;
 
     public UsuarioViewHolder(View itemView) {
         super(itemView);
+
         nome = (TextView) itemView.findViewById(R.id.nome);
         endereco = (TextView) itemView.findViewById(R.id.endereco);
+
         itemView.setOnLongClickListener(this);
         itemView.setOnCreateContextMenuListener(this);
     }
@@ -25,14 +27,15 @@ public class UsuarioViewHolder extends RecyclerView.ViewHolder implements View.O
     }
 
 
-    public void setLongClickListener(MyLongClickListener longClickListener)
-    {
+    public void setLongClickListener(MyLongClickListener longClickListener) {
         this.longClickListener=longClickListener;
     }
 
     @Override
     public boolean onLongClick(View v) {
         this.longClickListener.onLongClick(getLayoutPosition());
+
         return false;
     }
+
 }

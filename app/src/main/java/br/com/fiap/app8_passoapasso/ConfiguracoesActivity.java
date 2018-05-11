@@ -1,12 +1,11 @@
 package br.com.fiap.app8_passoapasso;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 public class ConfiguracoesActivity extends AppCompatActivity {
-
     private Button concluirConfiguracoes;
 
     @Override
@@ -22,4 +21,5 @@ public class ConfiguracoesActivity extends AppCompatActivity {
             }
         });
     }
+
 }
