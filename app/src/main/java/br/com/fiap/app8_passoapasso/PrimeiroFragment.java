@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -48,18 +49,26 @@ public class PrimeiroFragment extends Fragment {
         return myView;
     }
 
-    // onContextItemSelected
-    // Adiciona em new
-    // displayDialog()
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getTitle().equals("New")){
+            displayDialog();
+        }else if(item.getTitle().equals("Delete")){
+            adapter.delete();
+        }
+
+        return super.onContextItemSelected(item);
+    }
 
     public void displayDialog() {
         final Dialog dialog = new Dialog(getContext());
+
         dialog.setContentView(R.layout.cadastro);
 
-        nome = dialog.findViewById(R.layout.cadastro);
-        endereco = dialog.findViewById(R.layout.endereco);
-        cadastrar = dialog.findViewById(R.layout.cadastro);
-        cancelar = dialog.findViewById(R.layout.cancelar);
+        nome = dialog.findViewById(R.id.nome);
+        endereco = dialog.findViewById(R.id.endereco);
+        cadastrar = dialog.findViewById(R.id.cadastrar);
+        cancelar = dialog.findViewById(R.id.cancelar);
 
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +82,7 @@ public class PrimeiroFragment extends Fragment {
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
-            onClick(View view) {
+            public void onClick(View view) {
                 dialog.dismiss();
             }
         });
@@ -81,14 +90,4 @@ public class PrimeiroFragment extends Fragment {
         dialog.show();
     }
 
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        if(item.getTitle().equals("New")){
-
-        }else if(item.getTitle().equals("Delete")){
-            adapter.delete();
-        }
-        return super.onContextItemSelected(item);
-    }
 }
